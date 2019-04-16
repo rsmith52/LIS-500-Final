@@ -9,10 +9,10 @@
 $user_id = $_POST["user_id"];
 
 // Store the answer to the previous question, if applicable
-include "store-answer.php";
+include "../store-answer.php";
 
 // Specify the question text to be displayed on this page
-$question_text = "Statement 1.";
+$question_text = "Women should care more about their appearance than men do about theirs.";
 
 // Use the question text and the user id to create a form for this question that will take us to the next question OR the results page, whichever should come next:
 
@@ -20,10 +20,10 @@ $question_text = "Statement 1.";
 <html>
   <head>
     <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
-    <link href="style.css" rel="stylesheet">
+    <link href="../style.css" rel="stylesheet">
   </head>
   <body>
-    <form method="post" action="q2.php">
+    <form method="post" action="../results.php">
         <?php echo '<h1>'.$question_text.'</h1>'; ?>
         <?php echo '<p><input type="hidden" name="user_id" value="'.$user_id.'" /></p>'; ?>
         <?php echo '<p><input type="hidden" name="question" value="'.$question_text.'" /></p>'; ?>
