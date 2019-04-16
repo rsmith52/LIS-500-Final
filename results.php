@@ -42,7 +42,7 @@ $results = $query->get_result();
 
 ?>
 
-<h1>Results</h1>
+<h1>Results - Page Not Setup Yet</h1>
 
 <?php
 
