@@ -11,14 +11,21 @@ $user_id = rand(1000000, 9999999);
 
 ?>
 
-<p>In this survey you will be shown a series of statements about the Harvard Implicit Bias Test, or inspired by criticism of the
-  test, and you will be asked to what extent you agree or disagree with those statements. This survey should take you no more than
-  15 minutes to complete.</p>
-<body>
-  <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
-  <link href="style.css" rel="stylesheet">
-  <form method="post" action="q1.php">
-      <?php echo '<p><input type="hidden" name="user_id" value="'.$user_id.'" /></p>'; ?>
-      <p><input type="submit" value="Begin The Test" /></p>
-  </form>
-</body>
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+  </head>
+  <body>
+    <form method="post" action="q1.php">
+        <h1>
+          Welcome to Group 9's Gender Bias Test
+        </h1>
+        <p>In this survey you will be shown a series of statements about your views/beliefs on gender related topics.
+          For each statement, mark the bubble next to how strongly you agree.
+        </p>
+        <?php echo '<p><input type="hidden" name="user_id" value="'.$user_id.'" /></p>'; ?>
+        <p><input class="btn" type="submit" value="Begin The Test" /></p>
+    </form>
+  </body>
+</html>
