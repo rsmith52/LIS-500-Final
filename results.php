@@ -29,33 +29,29 @@ if ($conn->connect_error) {
 }
 
 // Prepare our query
-$query = $conn->prepare("SELECT question, answer FROM sharedsurvey WHERE user_id = ? ORDER BY question ASC");
-$query->bind_param("i", $user_id);
 
 // Run our query to get the list of questions/answers for this visitor
-$query->execute();
-$results = $query->get_result();
 
 // Display a "Results" label:
-
 ?>
 
-<h1>Results - Page Not Setup Yet</h1>
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+  </head>
+  <body>
+    <form method="post" action="Personal_Questions/q2.php">
+        <h1>
+          Results
+        </h1>
+        <p>
+        </p>
+    </form>
+  </body>
+</html>
 
 <?php
-
-// A variable to hold the sum of our results
-$sum = 0;
-
-// Loop through the SQL results and display them, one question/answer at a time
-// Calculate the sum while we're at it
-while ($result = $results->fetch_assoc()){
-    echo '<p><b>'.$result["question"].':</b> '.$result["answer"].'</p>';
-    $sum += $result["answer"];
-}
-
-// Now display the sum we calculated
-echo '<p><b>Total:</b> '.$sum.'</p>';
 
 // Close the query and connection since we're done with them
 $query->close();
