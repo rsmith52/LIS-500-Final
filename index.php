@@ -4,11 +4,9 @@
 // Last Modified on: 4 15, 2019
 // Last Modified by: Ray Smith
 
-// Generate a random number to use to identify the visitor throughout the survey
-$user_id = rand(1000000, 9999999);
-
-// Show just a message about the survey and a button to begin that takes us to the first question (q-royston.php):
-
+// Show just a message about the survey and a button to begin that takes us to the first question (Personal_Questions/q2.php):
+// q1 was removed as it was unnecessary
+$user_id = rand(0000000, 9999999);
 ?>
 
 <html>

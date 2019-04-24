@@ -8,8 +8,8 @@
 // Grab the user id from the POST data sent to us from the previous page
 $user_id = $_POST["user_id"];
 
-// Store the answer to the previous question, if applicable
-include "../store-answer.php";
+// Store the user in a new row in the table
+include "../store-answer_init.php";
 
 // Specify the question text to be displayed on this page
 $question_text = "What are your preferred gender pronouns?";
@@ -26,7 +26,7 @@ $question_text = "What are your preferred gender pronouns?";
     <form method="post" action="q3.php">
         <?php echo '<h1>'.$question_text.'</h1>'; ?>
         <?php echo '<p><input type="hidden" name="user_id" value="'.$user_id.'" /></p>'; ?>
-        <?php echo '<p><input type="hidden" name="question" value="'.$question_text.'" /></p>'; ?>
+        <?php echo '<p><input type="hidden" name="question" value="PRSN_2" /></p>'; ?>
         <p><input type="radio" name="answer" value="She/Her/Hers" /> She/Her/Hers</p>
         <p><input type="radio" name="answer" value="He/Him/His" /> He/Him/His</p>
         <p><input type="radio" name="answer" value="They/Them/Theirs" /> They/Them/Theirs</p>
