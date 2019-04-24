@@ -9,7 +9,7 @@
 $user_id = $_POST["user_id"];
 
 // Store the answer to the previous question, if applicable
-include "../store-answer.php";
+include "../store-answer_p.php";
 
 // Specify the question text to be displayed on this page
 $question_text = "I associate the STEM fields with men.";
@@ -26,7 +26,7 @@ $question_text = "I associate the STEM fields with men.";
     <form method="post" action="q6.php">
         <?php echo '<h1>'.$question_text.'</h1>'; ?>
         <?php echo '<p><input type="hidden" name="user_id" value="'.$user_id.'" /></p>'; ?>
-        <?php echo '<p><input type="hidden" name="question" value="'.$question_text.'" /></p>'; ?>
+        <?php echo '<p><input type="hidden" name="question" value="QUES_5" /></p>'; ?>
         <p><input type="radio" name="answer" value="5" /> I Strongly Agree</p>
         <p><input type="radio" name="answer" value="4" /> I Agree</p>
         <p><input type="radio" name="answer" value="3" /> Neutral</p>

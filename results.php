@@ -1,21 +1,19 @@
 <?php
 
-// Created by: Bryan Knowles
-// Based on: q-royston.php, store-answer.php
-// Last Modified on: Nov 21, 2018
-// Last Modified by: Bryan Knowles
+// Created by: Ray Smith, Francesca Tyler, Kaoru Ro
+// Based on: q-royston.php, store-answer.php by Bryan Knowles
+// Last Modified on: Apr 23, 2019
+// Last Modified by: Ray Smith
 
 // Grab the user id from the POST data sent to us from previous page
 $user_id = $_POST["user_id"];
 
 // Store the answer to the previous question, if applicable
-include "store-answer.php";
+include "store-answer_p.php";
 
 // Time to retreive from the database all data we've collected for this visitor throughout the survey
 
 // Database settings
-
-// copy these as necessary for your own projects
 $mysql_server="localhost";
 $mysql_db="raroyst1_raroystonorgmain";
 $mysql_port="3306";

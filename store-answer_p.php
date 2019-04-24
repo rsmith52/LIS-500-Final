@@ -31,9 +31,9 @@ $query = "UPDATE finalgroup9 SET $column = '$answer' WHERE USER_ID = '$user'";
 
 // Run the query to store the result of the previous question
 if ($conn->query($query) === TRUE) {
-    echo "Record updated successfully";
+    //echo "Record updated successfully";
 } else {
-    echo "Error updating record: " . $conn->error;
+    //echo "Error updating record: " . $conn->error;
 }
 
 // Close the connection since we're done with it
