@@ -23,7 +23,11 @@ if ($conn->connect_error) {
 }
 
 // Prepare our query
-$query = "UPDATE finalgroup9 SET $_POST["question"]=$_POST["answer"] WHERE RAND_ID=$_POST["user_id"]";
+$user = $_POST["user_id"];
+$column = $_POST["question"];
+$answer = $_POST["answer"];
+
+$query = "UPDATE finalgroup9 SET $column = '$answer' WHERE USER_ID = '$user'";
 
 // Run the query to store the result of the previous question
 if ($conn->query($query) === TRUE) {

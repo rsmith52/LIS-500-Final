@@ -25,9 +25,16 @@ if ($conn->connect_error) {
 // Prepare our query
 $query = $conn->prepare("INSERT INTO finalgroup9 (RAND_ID) VALUES (?)");
 $query->bind_param("i", $_POST["user_id"]);
+$query2 = $conn->prepare("SELECT USER_ID FROM finalgroup9");
 
 // Run the query to store the result of the previous question
 $query->execute();
+$query2->execute();
+
+$results = $query2->get_result();
+while ($result = $results->fetch_assoc()) {
+    $user_id = $result["USER_ID"];
+}
 
 // Close the query and connection since we're done with them
 $query->close();

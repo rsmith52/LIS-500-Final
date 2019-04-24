@@ -9,7 +9,7 @@
 $user_id = $_POST["user_id"];
 
 // Store the answer to the previous question, if applicable
-include "../store-answer.php";
+include "../store-answer_p.php";
 
 // Specify the question text to be displayed on this page
 $question_text = "What race do you identify as?";
@@ -26,7 +26,7 @@ $question_text = "What race do you identify as?";
     <form method="post" action="../Questions/q1.php">
         <?php echo '<h1>'.$question_text.'</h1>'; ?>
         <?php echo '<p><input type="hidden" name="user_id" value="'.$user_id.'" /></p>'; ?>
-        <?php echo '<p><input type="hidden" name="question" value="'.$question_text.'" /></p>'; ?>
+        <?php echo '<p><input type="hidden" name="question" value="PRSN_4" /></p>'; ?>
         <p><input type="radio" name="answer" value="White" /> White</p>
         <p><input type="radio" name="answer" value="Black" /> Black</p>
         <p><input type="radio" name="answer" value="Hispanic" /> Hispanic</p>
