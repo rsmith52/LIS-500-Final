@@ -27,12 +27,12 @@ $question_text = "What race do you identify as?";
         <?php echo '<h1>'.$question_text.'</h1>'; ?>
         <?php echo '<p><input type="hidden" name="user_id" value="'.$user_id.'" /></p>'; ?>
         <?php echo '<p><input type="hidden" name="question" value="'.$question_text.'" /></p>'; ?>
-        <p><input type="radio" name="answer" value="5" /> White</p>
-        <p><input type="radio" name="answer" value="4" /> Black</p>
-        <p><input type="radio" name="answer" value="3" /> Hispanic</p>
-        <p><input type="radio" name="answer" value="2" /> Asian</p>
-        <p><input type="radio" name="answer" value="1" /> Other</p>
-        <p><input type="radio" name="answer" value="0" /> Prefer not to Respond</p>
+        <p><input type="radio" name="answer" value="White" /> White</p>
+        <p><input type="radio" name="answer" value="Black" /> Black</p>
+        <p><input type="radio" name="answer" value="Hispanic" /> Hispanic</p>
+        <p><input type="radio" name="answer" value="Asian" /> Asian</p>
+        <p><input type="radio" name="answer" value="Other" /> Other</p>
+        <p><input type="radio" name="answer" value="No Response" /> Prefer not to Respond</p>
         <p><input class="btn" type="submit" value="Continue" /></p>
     </form>
   </body>

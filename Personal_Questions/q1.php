@@ -27,10 +27,10 @@ $question_text = "What gender do you identify as?";
         <?php echo '<h1>'.$question_text.'</h1>'; ?>
         <?php echo '<p><input type="hidden" name="user_id" value="'.$user_id.'" /></p>'; ?>
         <?php echo '<p><input type="hidden" name="question" value="'.$question_text.'" /></p>'; ?>
-        <p><input type="radio" name="answer" value="5" /> Female</p>
-        <p><input type="radio" name="answer" value="4" /> Male</p>
-        <p><input type="radio" name="answer" value="3" /> Other</p>
-        <p><input type="radio" name="answer" value="2" /> Prefer not to Respond</p>
+        <p><input type="radio" name="answer" value="Female" /> Female</p>
+        <p><input type="radio" name="answer" value="Male" /> Male</p>
+        <p><input type="radio" name="answer" value="Other" /> Other</p>
+        <p><input type="radio" name="answer" value="No Response" /> Prefer not to Respond</p>
         <p><input class="btn" type="submit" value="Continue" /></p>
     </form>
   </body>
