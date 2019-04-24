@@ -17,7 +17,7 @@ $user_id = rand(1000000, 9999999);
     <link href="style.css" rel="stylesheet">
   </head>
   <body>
-    <form method="post" action="Personal_Questions/q1.php">
+    <form method="post" action="Personal_Questions/q2.php">
         <h1>
           Welcome to Group 9's Gender Bias Test
         </h1>
