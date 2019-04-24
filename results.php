@@ -41,12 +41,22 @@ if ($conn->connect_error) {
     <link href="style.css" rel="stylesheet">
   </head>
   <body>
-    <form method="post" action="Personal_Questions/q2.php">
+    <form method="post" action="">
         <h1>
           Results
         </h1>
+        <h3>
+          Survey Demographics
+        </h3>
         <p>
+          Your Responses:
         </p>
+        <p>
+          Total Responses:
+        </p>
+        <h3>
+          Survey Responses
+        </h3>
     </form>
   </body>
 </html>
