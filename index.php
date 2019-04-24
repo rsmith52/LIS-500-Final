@@ -19,7 +19,7 @@ $user_id = rand(0000000, 9999999);
         <h1>
           Welcome to Group 9's Gender Bias Test
         </h1>
-        <p>In this survey you will be shown a series of statements about your views/beliefs on gender related topics.
+        <p>Our questions focus on gender and appearance. In this survey you will be shown a series of statements about your views/beliefs on gender related topics.
           For each statement, mark the bubble next to how strongly you agree.
         </p>
         <?php echo '<p><input type="hidden" name="user_id" value="'.$user_id.'" /></p>'; ?>

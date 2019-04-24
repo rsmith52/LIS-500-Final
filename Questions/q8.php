@@ -12,7 +12,7 @@ $user_id = $_POST["user_id"];
 include "../store-answer_p.php";
 
 // Specify the question text to be displayed on this page
-$question_text = "Men are better at managing or leading a company than women.";
+$question_text = "Skirts are a “woman’s” clothing and should not be worn by other gender groups.";
 
 // Use the question text and the user id to create a form for this question that will take us to the next question OR the results page, whichever should come next:
 

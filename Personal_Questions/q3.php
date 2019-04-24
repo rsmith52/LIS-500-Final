@@ -28,10 +28,11 @@ $question_text = "What age group do you fall under?";
         <?php echo '<p><input type="hidden" name="user_id" value="'.$user_id.'" /></p>'; ?>
         <?php echo '<p><input type="hidden" name="question" value="PRSN_3" /></p>'; ?>
         <p><input type="radio" name="answer" value="<18" /> Under 18</p>
-        <p><input type="radio" name="answer" value="18-22" /> 18-22</p>
-        <p><input type="radio" name="answer" value="23-25" /> 23-25</p>
-        <p><input type="radio" name="answer" value="25-30" /> 25-30</p>
-        <p><input type="radio" name="answer" value=">30" /> Over 30</p>
+        <p><input type="radio" name="answer" value="18-24" /> 18-24</p>
+        <p><input type="radio" name="answer" value="25-34" /> 25-34</p>
+        <p><input type="radio" name="answer" value="35-44" /> 35-44</p>
+        <p><input type="radio" name="answer" value="45-54" /> 45-54</p>
+		    <p><input type="radio" name="answer" value=">55" /> 55 or Older</p>
         <p><input type="radio" name="answer" value="No Response" /> Prefer not to Respond</p>
         <p><input class="btn" type="submit" value="Continue" /></p>
     </form>

@@ -30,7 +30,8 @@ $question_text = "What race do you identify as?";
         <p><input type="radio" name="answer" value="White" /> White</p>
         <p><input type="radio" name="answer" value="Black" /> Black</p>
         <p><input type="radio" name="answer" value="Hispanic" /> Hispanic</p>
-        <p><input type="radio" name="answer" value="Asian" /> Asian</p>
+        <p><input type="radio" name="answer" value="Asian/Pacific Islander" /> Asian/Pacific Islander</p>
+		    <p><input type="radio" name="answer" value="Native American" /> Native American</p>
         <p><input type="radio" name="answer" value="Other" /> Other</p>
         <p><input type="radio" name="answer" value="No Response" /> Prefer not to Respond</p>
         <p><input class="btn" type="submit" value="Continue" /></p>

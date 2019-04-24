@@ -12,7 +12,7 @@ $user_id = $_POST["user_id"];
 include "../store-answer_p.php";
 
 // Specify the question text to be displayed on this page
-$question_text = "People are treated differently based on their gender.";
+$question_text = "I find muscular women to be unattractive.";
 
 // Use the question text and the user id to create a form for this question that will take us to the next question OR the results page, whichever should come next:
 
