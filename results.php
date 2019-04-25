@@ -30,9 +30,11 @@ if ($conn->connect_error) {
 
 // Prepare our query
 $query_user = $conn->prepare("SELECT * FROM finalgroup9 WHERE USER_ID = '$user_id'");
+$query_all = $conn->prepare("SELECT * FROM finalgroup9");
 
 // Run our query to get the list of questions/answers for this visitor
 $query_user->execute();
+$query_all->execute();
 
 
 $results = $query_user->get_result();
@@ -58,37 +60,17 @@ while ($result = $results->fetch_assoc()) {
     $ques_15 = $result["QUES_15"];
 }
 
+$results2 = $query_all->get_result();
+$count = 0;
+while ($result = $results2->fetch_assoc()) {
+
+  $count = $count + 1;
+}
+
 // Close the query and connection since we're done with them
 $query_user->close();
+$query_all->close();
 $conn->close();
-/*
-$personal_responses = array(
-  "She/Her/Hers" => "0",
-  "He/Him/His" => "0",
-  "They/Them/Theirs" => "0",
-  "Other Pronouns" => "0",
-  "No Pronoun Response" => "0",
-  "<18" => "0",
-  "18-24" => "0",
-  "25-34" => "0",
-  "35-44" => "0",
-  "45-54" => "0",
-  ">55" => "0",
-  "No Age Response" => "0",
-  "White" => "0",
-  "Black" => "0",
-  "Hispanic" => "0",
-  "Asian/Pacific Islander" => "0",
-  "Native American" => "0",
-  "Other Race" => "0",
-  "No Race Response" => "0",
-);
-$results = $query_all->get_result();
-while ($result = $results->fetch_assoc()) {
-
-}*/
-
-// Display a "Results" label:
 ?>
 
 <html>
@@ -99,7 +81,7 @@ while ($result = $results->fetch_assoc()) {
   <body>
     <form method="post" action="">
         <h1>
-          Results
+          Results - 5
         </h1>
         <h2>
           Survey Demographics
@@ -109,34 +91,115 @@ while ($result = $results->fetch_assoc()) {
         </h4>
         <p>&nbsp;&nbsp;&nbsp;&nbsp;Gender Pronouns: <?php echo $pers_2; ?></p>
         <p>&nbsp;&nbsp;&nbsp;&nbsp;Age: <?php echo $pers_3; ?></p>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;Race: <?php echo $pers_4; ?></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Ethnicity: <?php echo $pers_4; ?></p>
         <h4>
           Total Responses
         </h4>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Gender Pronouns</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;She/Her/Hers: </p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;He/Him/His: </p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;They/Them/Theirs: </p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Other: </p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No Response: </p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Age</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Under 18: </p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;18-24: </p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;25-34: </p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;35-44: </p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;55 or Older: </p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No Response: </p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Ethnicity</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;White: </p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Black: </p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hispanic: </p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Asian/Pacific Islander: </p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Native American: </p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mixed Ethnicity: </p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Other: </p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No Response: </p>
+
         <br />
         <h2>
-          Survey Responses - (5: Strongly Agree, 1: Strongly Disagree, 0: No Response)
+          Survey Responses
         </h2>
+        <h3>
+          (5: Strongly Agree, 1: Strongly Disagree, 0: No Response)
+        </h3>
         <h4>
           I find muscular women to be unattractive.
         </h4>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;:Your Response <?php echo $ques_1; ?></p>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;:Average Response <?php echo $ques_1; ?></p>
-
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;I find muscular men to be attractive: <?php echo $ques_2; ?></p>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;I find men who are tall to be more attractive than men who are short: <?php echo $ques_3; ?></p>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;I find men who play basketball to be more masculine than men who play volleyball: <?php echo $ques_4; ?></p>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;I find women who play volleyball to be more feminine than women who play basketball: <?php echo $ques_5; ?></p>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;I view skinny men as less masculine than muscular men: <?php echo $ques_6; ?></p>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;I view skinny women as more attractive than those who are overweight: <?php echo $ques_7; ?></p>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;I think skirts are a “woman’s” clothing and should not be worn by other gender groups: <?php echo $ques_8; ?></p>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;I think drop earrings are a “woman’s” accessory and should not be worn by other gender groups: <?php echo $ques_9; ?></p>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;I think makeup is a “woman’s” thing and should not be worn by other gender groups: <?php echo $ques_10; ?></p>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;I think thigh-length shorts look less masculine on men than knee-length shorts: <?php echo $ques_11; ?></p>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;I expect women to wear dresses and heels during formal ceremonies: <?php echo $ques_12; ?></p>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;I expect men to wear suits during formal ceremonies: <?php echo $ques_13; ?></p>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;I believe men do not care about their appearance as much as other gender groups do: <?php echo $ques_14; ?></p>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;I think people should make more of an effort to use gender neutral terms in daily conversation to avoid assuming gender identity based off of appearance: <?php echo $ques_15; ?></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Your Response: <?php echo $ques_1; ?></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php echo $ques_1; ?></p>
+        <h4>
+          I find muscular men to be attractive.
+        </h4>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Your Response: <?php echo $ques_2; ?></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php echo $ques_2; ?></p>
+        <h4>
+          I find men who are tall to be more attractive than men who are short.
+        </h4>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Your Response: <?php echo $ques_3; ?></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php echo $ques_3; ?></p>
+        <h4>
+          I find men who play basketball to be more masculine than men who play volleyball.
+        </h4>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Your Response: <?php echo $ques_4; ?></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php echo $ques_4; ?></p>
+        <h4>
+          I find women who play volleyball to be more feminine than women who play basketball.
+        </h4>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Your Response: <?php echo $ques_5; ?></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php echo $ques_5; ?></p>
+        <h4>
+          I view skinny men as less masculine than muscular men.
+        </h4>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Your Response: <?php echo $ques_6; ?></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php echo $ques_6; ?></p>
+        <h4>
+          I view skinny women as more attractive than those who are overweight.
+        </h4>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Your Response: <?php echo $ques_7; ?></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php echo $ques_7; ?></p>
+        <h4>
+          I think skirts are a “woman’s” clothing and should not be worn by other gender groups.
+        </h4>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Your Response: <?php echo $ques_8; ?></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php echo $ques_8; ?></p>
+        <h4>
+          I think drop earrings are a “woman’s” accessory and should not be worn by other gender groups.
+        </h4>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Your Response: <?php echo $ques_9; ?></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php echo $ques_9; ?></p>
+        <h4>
+          I think makeup is a “woman’s” thing and should not be worn by other gender groups.
+        </h4>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Your Response: <?php echo $ques_10; ?></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php echo $ques_10; ?></p>
+        <h4>
+          I think thigh-length shorts look less masculine on men than knee-length shorts.
+        </h4>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Your Response: <?php echo $ques_11; ?></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php echo $ques_11; ?></p>
+        <h4>
+          I expect women to wear dresses and heels during formal ceremonies.
+        </h4>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Your Response: <?php echo $ques_12; ?></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php echo $ques_12; ?></p>
+        <h4>
+          I expect men to wear suits during formal ceremonies.
+        </h4>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Your Response: <?php echo $ques_13; ?></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php echo $ques_13; ?></p>
+        <h4>
+          I believe men do not care about their appearance as much as other gender groups do.
+        </h4>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Your Response: <?php echo $ques_14; ?></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php echo $ques_14; ?></p>
+        <h4>
+          I think people should make more of an effort to use gender neutral terms in daily conversation to avoid assuming gender identity based off of appearance.
+        </h4>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Your Response: <?php echo $ques_15; ?></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php echo $ques_15; ?></p>
     </form>
   </body>
 </html>

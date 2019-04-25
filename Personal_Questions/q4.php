@@ -12,7 +12,7 @@ $user_id = $_POST["user_id"];
 include "../store-answer_p.php";
 
 // Specify the question text to be displayed on this page
-$question_text = "What race do you identify as?";
+$question_text = "What ethnicity do you identify as?";
 
 // Use the question text and the user id to create a form for this question that will take us to the next question OR the results page, whichever should come next:
 
@@ -32,6 +32,7 @@ $question_text = "What race do you identify as?";
         <p><input type="radio" name="answer" value="Hispanic" /> Hispanic</p>
         <p><input type="radio" name="answer" value="Asian/Pacific Islander" /> Asian/Pacific Islander</p>
 		    <p><input type="radio" name="answer" value="Native American" /> Native American</p>
+        <p><input type="radio" name="answer" value="Mixed Ethnicity" /> Mixed Ethnicity</p>
         <p><input type="radio" name="answer" value="Other" /> Other</p>
         <p><input type="radio" name="answer" value="No Response" /> Prefer not to Respond</p>
         <p><input class="btn" type="submit" value="Continue" /></p>

@@ -9,6 +9,19 @@ form {
   margin: auto;
 }
 
+form h1 {
+  color: #FF69B4;
+}
+form h2 {
+  color: #FF69B4;
+}
+form h3 {
+  color: #FF69B4;
+}
+form h4 {
+  color: #FF69B4;
+}
+
 .btn {
   width: 100px;
   height: 30px;
