@@ -30,11 +30,9 @@ if ($conn->connect_error) {
 
 // Prepare our query
 $query_user = $conn->prepare("SELECT * FROM finalgroup9 WHERE USER_ID = '$user_id'");
-$query_all = $conn->prepare("SELECT * FROM finalgroup9");
 
 // Run our query to get the list of questions/answers for this visitor
 $query_user->execute();
-$query_all->execute();
 
 
 $results = $query_user->get_result();
@@ -60,17 +58,49 @@ while ($result = $results->fetch_assoc()) {
     $ques_15 = $result["QUES_15"];
 }
 
-$results2 = $query_all->get_result();
+// Close the query and connection since we're done with them
+$query_user->close();
+$conn->close();
+?>
+
+<?php
+// Database settings
+$mysql_server="localhost";
+$mysql_db="raroyst1_raroystonorgmain";
+$mysql_port="3306";
+$mysql_user="raroyst1_cfbd_cg";
+$mysql_password="W!SCsin2018";
+
+// Connect to the database
+$conn = new mysqli($mysql_server, $mysql_user, $mysql_password, $mysql_db);
+
+// Whoops. This shouldn't happen, but if we can't connect to the database "blow up" and stop here
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Prepare our query
+$query_all = $conn->prepare("SELECT * FROM finalgroup9 WHERE USER_ID > 0");
+
+// Run our query to get the list of questions/answers for this visitor
+$query_all->execute();
+
+$results = $query_all->get_result();
+$pronouns = array(0, 0, 0, 0, 0);
+$ages = array(0, 0, 0, 0, 0, 0, 0);
+$ethnicities = array(0, 0, 0, 0, 0, 0, 0, 0);
+$answers = array(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
 $count = 0;
-while ($result = $results2->fetch_assoc()) {
+while ($result = $results->fetch_assoc()) {
 
   $count = $count + 1;
 }
 
 // Close the query and connection since we're done with them
-$query_user->close();
 $query_all->close();
 $conn->close();
+?>
+
 ?>
 
 <html>
@@ -81,7 +111,7 @@ $conn->close();
   <body>
     <form method="post" action="">
         <h1>
-          Results - 5
+          Results - 9
         </h1>
         <h2>
           Survey Demographics
