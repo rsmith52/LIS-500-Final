@@ -92,6 +92,54 @@ $ethnicities = array(0, 0, 0, 0, 0, 0, 0, 0);
 $answers = array(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
 $count = 0;
 while ($result = $results->fetch_assoc()) {
+  $this_pronoun = $result["PRSN_2"];
+  if ($this_pronoun == "She/Her/Hers") {
+    $pronouns[0]++;
+  } elseif ($this_pronoun == "He/Him/His") {
+    $pronouns[1]++;
+  } elseif ($this_pronoun == "They/Them/Theirs") {
+    $pronouns[2]++;
+  } elseif ($this_pronoun == "Other") {
+    $pronouns[3]++;
+  } else {
+    $pronouns[4]++;
+  }
+
+  $this_age = $result["PRSN_3"];
+  if ($this_age == "<18") {
+    $ages[0]++;
+  } elseif ($this_age == "18-24") {
+    $ages[1]++;
+  } elseif ($this_age == "25-34") {
+    $ages[2]++;
+  } elseif ($this_age == "35-44") {
+    $ages[3]++;
+  } elseif ($this_age == "45-54") {
+    $ages[4]++;
+  } elseif ($this_age == ">55") {
+    $ages[5]++;
+  } else {
+    $ages[6]++;
+  }
+
+  $this_ethnicity = $result["PRSN_4"];
+  if ($this_ethnicity == "White") {
+    $ethnicities[0]++;
+  } elseif ($this_ethnicity == "Black") {
+    $ethnicities[1]++;
+  } elseif ($this_ethnicity == "Hispanic") {
+    $ethnicities[2]++;
+  } elseif ($this_ethnicity == "Asian/Pacific Islander") {
+    $ethnicities[3]++;
+  } elseif ($this_ethnicity == "Native American") {
+    $ethnicities[4]++;
+  } elseif ($this_ethnicity == "Mixed Ethnicity") {
+    $ethnicities[5]++;
+  } elseif ($this_ethnicity == "Other") {
+    $ethnicities[6]++;
+  } else {
+    $ethnicities[7]++;
+  }
 
   $count = $count + 1;
 }
@@ -111,7 +159,7 @@ $conn->close();
   <body>
     <form method="post" action="">
         <h1>
-          Results - 9
+          Results
         </h1>
         <h2>
           Survey Demographics
@@ -126,27 +174,27 @@ $conn->close();
           Total Responses
         </h4>
         <p>&nbsp;&nbsp;&nbsp;&nbsp;Gender Pronouns</p>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;She/Her/Hers: </p>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;He/Him/His: </p>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;They/Them/Theirs: </p>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Other: </p>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No Response: </p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;She/Her/Hers: <?php echo $pronouns[0]; ?></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;He/Him/His: <?php echo $pronouns[1]; ?></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;They/Them/Theirs: <?php echo $pronouns[2]; ?></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Other: <?php echo $pronouns[3]; ?></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No Response: <?php echo $pronouns[4]; ?></p>
         <p>&nbsp;&nbsp;&nbsp;&nbsp;Age</p>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Under 18: </p>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;18-24: </p>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;25-34: </p>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;35-44: </p>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;55 or Older: </p>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No Response: </p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Under 18: <?php echo $ages[0]; ?></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;18-24: <?php echo $ages[1]; ?></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;25-34: <?php echo $ages[2]; ?></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;35-44: <?php echo $ages[3]; ?></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;55 or Older: <?php echo $ages[4]; ?></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No Response: <?php echo $ages[5]; ?></p>
         <p>&nbsp;&nbsp;&nbsp;&nbsp;Ethnicity</p>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;White: </p>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Black: </p>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hispanic: </p>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Asian/Pacific Islander: </p>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Native American: </p>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mixed Ethnicity: </p>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Other: </p>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No Response: </p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;White: <?php echo $ethnicities[0]; ?></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Black: <?php echo $ethnicities[1]; ?></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hispanic: <?php echo $ethnicities[2]; ?></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Asian/Pacific Islander: <?php echo $ethnicities[3]; ?></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Native American: <?php echo $ethnicities[4]; ?></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mixed Ethnicity: <?php echo $ethnicities[5]; ?></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Other: <?php echo $ethnicities[6]; ?></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No Response: <?php echo $ethnicities[7]; ?></p>
 
         <br />
         <h2>
@@ -159,77 +207,77 @@ $conn->close();
           I find muscular women to be unattractive.
         </h4>
         <p>&nbsp;&nbsp;&nbsp;&nbsp;Your Response: <?php echo $ques_1; ?></p>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php echo $ques_1; ?></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php echo 0; ?></p>
         <h4>
           I find muscular men to be attractive.
         </h4>
         <p>&nbsp;&nbsp;&nbsp;&nbsp;Your Response: <?php echo $ques_2; ?></p>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php echo $ques_2; ?></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php echo 0; ?></p>
         <h4>
           I find men who are tall to be more attractive than men who are short.
         </h4>
         <p>&nbsp;&nbsp;&nbsp;&nbsp;Your Response: <?php echo $ques_3; ?></p>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php echo $ques_3; ?></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php echo 0; ?></p>
         <h4>
           I find men who play basketball to be more masculine than men who play volleyball.
         </h4>
         <p>&nbsp;&nbsp;&nbsp;&nbsp;Your Response: <?php echo $ques_4; ?></p>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php echo $ques_4; ?></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php echo 0; ?></p>
         <h4>
           I find women who play volleyball to be more feminine than women who play basketball.
         </h4>
         <p>&nbsp;&nbsp;&nbsp;&nbsp;Your Response: <?php echo $ques_5; ?></p>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php echo $ques_5; ?></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php echo 0; ?></p>
         <h4>
           I view skinny men as less masculine than muscular men.
         </h4>
         <p>&nbsp;&nbsp;&nbsp;&nbsp;Your Response: <?php echo $ques_6; ?></p>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php echo $ques_6; ?></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php echo 0; ?></p>
         <h4>
           I view skinny women as more attractive than those who are overweight.
         </h4>
         <p>&nbsp;&nbsp;&nbsp;&nbsp;Your Response: <?php echo $ques_7; ?></p>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php echo $ques_7; ?></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php echo 0; ?></p>
         <h4>
           I think skirts are a “woman’s” clothing and should not be worn by other gender groups.
         </h4>
         <p>&nbsp;&nbsp;&nbsp;&nbsp;Your Response: <?php echo $ques_8; ?></p>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php echo $ques_8; ?></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php echo 0; ?></p>
         <h4>
           I think drop earrings are a “woman’s” accessory and should not be worn by other gender groups.
         </h4>
         <p>&nbsp;&nbsp;&nbsp;&nbsp;Your Response: <?php echo $ques_9; ?></p>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php echo $ques_9; ?></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php echo 0; ?></p>
         <h4>
           I think makeup is a “woman’s” thing and should not be worn by other gender groups.
         </h4>
         <p>&nbsp;&nbsp;&nbsp;&nbsp;Your Response: <?php echo $ques_10; ?></p>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php echo $ques_10; ?></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php echo 0; ?></p>
         <h4>
           I think thigh-length shorts look less masculine on men than knee-length shorts.
         </h4>
         <p>&nbsp;&nbsp;&nbsp;&nbsp;Your Response: <?php echo $ques_11; ?></p>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php echo $ques_11; ?></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php echo 0; ?></p>
         <h4>
           I expect women to wear dresses and heels during formal ceremonies.
         </h4>
         <p>&nbsp;&nbsp;&nbsp;&nbsp;Your Response: <?php echo $ques_12; ?></p>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php echo $ques_12; ?></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php echo 0; ?></p>
         <h4>
           I expect men to wear suits during formal ceremonies.
         </h4>
         <p>&nbsp;&nbsp;&nbsp;&nbsp;Your Response: <?php echo $ques_13; ?></p>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php echo $ques_13; ?></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php echo 0; ?></p>
         <h4>
           I believe men do not care about their appearance as much as other gender groups do.
         </h4>
         <p>&nbsp;&nbsp;&nbsp;&nbsp;Your Response: <?php echo $ques_14; ?></p>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php echo $ques_14; ?></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php echo 0; ?></p>
         <h4>
           I think people should make more of an effort to use gender neutral terms in daily conversation to avoid assuming gender identity based off of appearance.
         </h4>
         <p>&nbsp;&nbsp;&nbsp;&nbsp;Your Response: <?php echo $ques_15; ?></p>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php echo $ques_15; ?></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php echo 0; ?></p>
     </form>
   </body>
 </html>

@@ -17,7 +17,7 @@ $user_id = rand(0000000, 9999999);
   <body>
     <form method="post" action="Personal_Questions/q2.php">
         <h1>
-          Welcome to Group 9's Gender Bias Test - 9
+          Welcome to Group 9's Gender Bias Test
         </h1>
         <p>Our questions focus on gender and appearance. In this survey you will be shown a series of statements about your views/beliefs on gender related topics.
           For each statement, mark the bubble next to how strongly you agree.
