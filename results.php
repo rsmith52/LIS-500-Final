@@ -141,7 +141,42 @@ while ($result = $results->fetch_assoc()) {
     $ethnicities[7]++;
   }
 
+  $q = $result["QUES_1"];
+  $answers[0] += $q;
+  $q = $result["QUES_2"];
+  $answers[1] += $q;
+  $q = $result["QUES_3"];
+  $answers[2] += $q;
+  $q = $result["QUES_4"];
+  $answers[3] += $q;
+  $q = $result["QUES_5"];
+  $answers[4] += $q;
+  $q = $result["QUES_6"];
+  $answers[5] += $q;
+  $q = $result["QUES_7"];
+  $answers[6] += $q;
+  $q = $result["QUES_8"];
+  $answers[7] += $q;
+  $q = $result["QUES_9"];
+  $answers[8] += $q;
+  $q = $result["QUES_10"];
+  $answers[9] += $q;
+  $q = $result["QUES_11"];
+  $answers[10] += $q;
+  $q = $result["QUES_12"];
+  $answers[11] += $q;
+  $q = $result["QUES_13"];
+  $answers[12] += $q;
+  $q = $result["QUES_14"];
+  $answers[13] += $q;
+  $q = $result["QUES_15"];
+  $answers[14] += $q;
+
   $count = $count + 1;
+}
+
+for ($i = 0; $i < count($answers); $i++) {
+  $answers[$i] = $answers[$i] / $count;
 }
 
 // Close the query and connection since we're done with them
@@ -207,77 +242,77 @@ $conn->close();
           I find muscular women to be unattractive.
         </h4>
         <p>&nbsp;&nbsp;&nbsp;&nbsp;Your Response: <?php echo $ques_1; ?></p>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php echo 0; ?></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php echo $answers[0]; ?></p>
         <h4>
           I find muscular men to be attractive.
         </h4>
         <p>&nbsp;&nbsp;&nbsp;&nbsp;Your Response: <?php echo $ques_2; ?></p>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php echo 0; ?></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php echo $answers[1]; ?></p>
         <h4>
           I find men who are tall to be more attractive than men who are short.
         </h4>
         <p>&nbsp;&nbsp;&nbsp;&nbsp;Your Response: <?php echo $ques_3; ?></p>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php echo 0; ?></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php $answers[2]; ?></p>
         <h4>
           I find men who play basketball to be more masculine than men who play volleyball.
         </h4>
         <p>&nbsp;&nbsp;&nbsp;&nbsp;Your Response: <?php echo $ques_4; ?></p>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php echo 0; ?></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php $answers[3]; ?></p>
         <h4>
           I find women who play volleyball to be more feminine than women who play basketball.
         </h4>
         <p>&nbsp;&nbsp;&nbsp;&nbsp;Your Response: <?php echo $ques_5; ?></p>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php echo 0; ?></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php $answers[4]; ?></p>
         <h4>
           I view skinny men as less masculine than muscular men.
         </h4>
         <p>&nbsp;&nbsp;&nbsp;&nbsp;Your Response: <?php echo $ques_6; ?></p>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php echo 0; ?></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php $answers[5]; ?></p>
         <h4>
           I view skinny women as more attractive than those who are overweight.
         </h4>
         <p>&nbsp;&nbsp;&nbsp;&nbsp;Your Response: <?php echo $ques_7; ?></p>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php echo 0; ?></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php $answers[6]; ?></p>
         <h4>
           I think skirts are a “woman’s” clothing and should not be worn by other gender groups.
         </h4>
         <p>&nbsp;&nbsp;&nbsp;&nbsp;Your Response: <?php echo $ques_8; ?></p>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php echo 0; ?></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php $answers[7]; ?></p>
         <h4>
           I think drop earrings are a “woman’s” accessory and should not be worn by other gender groups.
         </h4>
         <p>&nbsp;&nbsp;&nbsp;&nbsp;Your Response: <?php echo $ques_9; ?></p>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php echo 0; ?></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php $answers[8]; ?></p>
         <h4>
           I think makeup is a “woman’s” thing and should not be worn by other gender groups.
         </h4>
         <p>&nbsp;&nbsp;&nbsp;&nbsp;Your Response: <?php echo $ques_10; ?></p>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php echo 0; ?></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php $answers[9]; ?></p>
         <h4>
           I think thigh-length shorts look less masculine on men than knee-length shorts.
         </h4>
         <p>&nbsp;&nbsp;&nbsp;&nbsp;Your Response: <?php echo $ques_11; ?></p>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php echo 0; ?></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php $answers[10]; ?></p>
         <h4>
           I expect women to wear dresses and heels during formal ceremonies.
         </h4>
         <p>&nbsp;&nbsp;&nbsp;&nbsp;Your Response: <?php echo $ques_12; ?></p>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php echo 0; ?></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php $answers[11]; ?></p>
         <h4>
           I expect men to wear suits during formal ceremonies.
         </h4>
         <p>&nbsp;&nbsp;&nbsp;&nbsp;Your Response: <?php echo $ques_13; ?></p>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php echo 0; ?></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php $answers[12]; ?></p>
         <h4>
           I believe men do not care about their appearance as much as other gender groups do.
         </h4>
         <p>&nbsp;&nbsp;&nbsp;&nbsp;Your Response: <?php echo $ques_14; ?></p>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php echo 0; ?></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php $answers[13]; ?></p>
         <h4>
           I think people should make more of an effort to use gender neutral terms in daily conversation to avoid assuming gender identity based off of appearance.
         </h4>
         <p>&nbsp;&nbsp;&nbsp;&nbsp;Your Response: <?php echo $ques_15; ?></p>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php echo 0; ?></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;Average Response: <?php $answers[14]; ?></p>
     </form>
   </body>
 </html>
