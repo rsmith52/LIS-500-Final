@@ -9,7 +9,7 @@
 $user_id = rand(0000000, 9999999);
 ?>
 
-<html>
+<html lang="en">
   <head>
     <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
     <link href="style.css" rel="stylesheet">

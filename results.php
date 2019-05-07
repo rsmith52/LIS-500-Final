@@ -177,6 +177,7 @@ while ($result = $results->fetch_assoc()) {
 
 for ($i = 0; $i < count($answers); $i++) {
   $answers[$i] = $answers[$i] / $count;
+  $answers[$i] = round($answers[$i], 2);
 }
 
 // Close the query and connection since we're done with them
@@ -184,7 +185,7 @@ $query_all->close();
 $conn->close();
 ?>
 
-<html>
+<html lang="en">
   <head>
     <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
