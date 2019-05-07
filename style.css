@@ -1,5 +1,9 @@
 body {
   background-color: #222222;
+  font-family: 'Quicksand', sans-serif;
+  color: white;
+  max-width: 50%;
+  margin: auto;
 }
 
 form {
@@ -7,6 +11,22 @@ form {
   color: white;
   max-width: 50%;
   margin: auto;
+}
+
+nav li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  font-size: 22px;
+}
+
+nav a:hover {
+  text-decoration: underline;
+  color: #FF69B4;
 }
 
 form h1 {
@@ -19,6 +39,19 @@ form h3 {
   color: #FF69B4;
 }
 form h4 {
+  color: #FF69B4;
+}
+
+h1 {
+  color: #FF69B4;
+}
+h2 {
+  color: #FF69B4;
+}
+h3 {
+  color: #FF69B4;
+}
+h4 {
   color: #FF69B4;
 }
 

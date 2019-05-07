@@ -13,6 +13,44 @@ $user_id = rand(0000000, 9999999);
   <head>
     <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
+    <nav>
+      <h1>Group 9 Final Project</h1>
+      <ul>
+        <li>
+          <a href="index.html">Home Page</a>
+        </li>
+        <li>
+          *
+        </li>
+        <li>
+          <a href="results.php">Results Page</a>
+        </li>
+        <li>
+          *
+        </li>
+        <li>
+          <a href="ray_reflection.html">Ray's Reflection</a>
+        </li>
+        <li>
+          *
+        </li>
+        <li>
+          <a href="francesca_reflection.html">Francesca's Reflection</a>
+        </li>
+        <li>
+          *
+        </li>
+        <li>
+          <a href="kaoru_reflection.html">Kaoru's Reflection</a>
+        </li>
+        <li>
+          *
+        </li>
+        <li>
+          <a href="group_reflection.html">Group Reflection</a>
+        </li>
+      </ul>
+    </nav>
   </head>
   <body>
     <form method="post" action="Personal_Questions/q2.php">
