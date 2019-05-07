@@ -188,11 +188,15 @@ $conn->close();
   <head>
     <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
+    <title>LIS 500 - Survey Results</title>
+    <meta charset="UTF-8">
+  </head>
+  <body>
     <nav>
       <h1>Group 9 Final Project</h1>
       <ul>
         <li>
-          <a href="index.html">Home Page</a>
+          <a href="index.php">Home Page</a>
         </li>
         <li>
           *
@@ -226,8 +230,6 @@ $conn->close();
         </li>
       </ul>
     </nav>
-  </head>
-  <body>
     <form method="post" action="">
         <h1>
           Results
